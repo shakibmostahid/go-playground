@@ -1,0 +1,13 @@
+services:
+  app:
+    image: play_with_go_app:dev
+    build:
+      context: ${BUILD_CONTEXT}
+      dockerfile: docker/Dockerfile
+
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    volumes:
+      - ../codes:/app
